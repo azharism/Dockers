@@ -17,3 +17,15 @@ EXPOSE 3000
 
 # Start the application
 CMD [ "npm", "start" ]
+====================================================
+
+ # Use an official Node runtime as the base image
+ FROM node:20-alpine
+ COPY build /app
+ RUN npm install -g serve
+ # Expose the port the app runs on
+ EXPOSE 3000
+ 
+ # Command to run the app when the container is started
+ CMD ["serve", "-s", "app"] 
+  
